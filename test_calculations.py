@@ -1,4 +1,6 @@
 from geo_calculator.calculations import find_average
+import pytest
+from geo_calculator.calculations import gardners_equation
 
 def test_length_of_string() -> None:
     test_string = "python"
@@ -8,4 +10,7 @@ def test_find_average_of_list_of_numbers() -> None:
     test_list = [1,2,3,4,5,6]
     assert find_average(test_list) == 3.5
 
-
+def test_gardners_equation():
+    velocity = 2000  # m/s
+    expected_density = 2.0730949  # g/cm3
+    assert gardners_equation(velocity) == pytest.approx(expected_density)
